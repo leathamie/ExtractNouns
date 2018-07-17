@@ -16,13 +16,21 @@ def extractFileContent(filename):
     return fileContent
 
 
-def getSpeechLines(filename):
-    content = extractFileContent(filename)
-    line_tab = re.findall('\*MOT:.*\n', content)
+def getSpeechLines(filePath):
+    content = extractFileContent(filePath)
+    line_tab = re.findall('\*MOT:.*_[0123456789][0123456789]*', content)
     print (len(line_tab))
     return line_tab
-def splitLines(SpeechLines):
-    line = SpeechLines[0]
+
+def splitLines(speechLines):
+    lines = []
+    for line in speechLines:
+        splitLine = splitOneLine(line)
+        lines.append(splitLine)
+    return lines
+
+def splitOneLine(line):
+    print (line)
     line = line.split(':\t')
     act = line[0]
     act = act.replace('*','')
@@ -37,8 +45,24 @@ def splitLines(SpeechLines):
     print ("sentence "+sentence)
     print ("on " + on)
     print ("off "+ off)
+    return act + ',' +  on + ',' + off + ',' + sentence + '\n'
+
+def getFileName(filePath):
+    filename = filePath.split('/')[-1]
+    if len(filename) == 0 :
+        filename =filePath.split('.')[0]
+    else : 
+        filename = filename.split('.')[0]
+    return filename
     
-    
+def saveInFile(filePath):
+        lines = getSpeechLines(filePath)
+        contentTab = splitLines(lines)
+        filename = getFileName(filePath)
+        file = open(filename + '.txt','w')
+        file.write('name,on,off,sentence\n')
+        for content in contentTab:
+            file.write(content)
         
 def getAllSpeechDuration(filename):
     content = extractFileContent(filename)
@@ -60,7 +84,6 @@ def getEnd(filename):
     return off
 
 
-lines = getSpeechLines('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
-print ("resultat de getSpeechLines" + str(lines))
-splitLines(lines)
+lines = saveInFile('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
+
 
