@@ -1,0 +1,338 @@
+name,on,off,sentence
+MOT,568800,569303,yay . 
+MOT,569895,571286,yes . 
+MOT,571950,573283,what do you +... 
+MOT,573283,574675,what do you see ? 
+MOT,574675,576520,you just love Big_Bird . 
+MOT,576520,577365,0 [=! gasp] . 
+MOT,578771,580443,hear the music ? 
+MOT,584266,586803,0 [=! gasp] . 
+MOT,586803,588068,did the music stop ? 
+MOT,588068,589136,where did the music go ? 
+MOT,589136,590331,can you make the music ? 
+MOT,590445,590888,0 [=! gasp] . 
+MOT,590888,592373,very good ! 
+MOT,593461,594893,can you make the music ? 
+MOT,594893,598055,how do we make the music ? 
+MOT,598055,600718,Chi . 
+MOT,602023,602586,0 [=! gasp] . 
+MOT,602586,605226,did the birdie sing ? 
+MOT,605226,607295,very good ! 
+MOT,607295,608541,good job ! 
+MOT,608541,611108,0 [=! gasp] . 
+MOT,611108,615096,Chi made the birdie sing . 
+MOT,615096,620033,can the birdie sing some more ? 
+MOT,620486,621008,0 [=! gasp] . 
+MOT,621008,624711,very good job . 
+MOT,624711,625976,good job ! 
+MOT,629295,632923,yep , there's the birdie's beak . 
+MOT,636043,638325,okay , okay , let's see what else we can find . 
+MOT,638325,642441,let's see . 
+MOT,642441,643200,0 [=! gasp] . 
+MOT,643200,644061,cow . 
+MOT,644061,645896,cow says moo@o . 
+MOT,645896,647066,what's a cow say ? 
+MOT,647066,650008,cow says moo@o . 
+MOT,650970,652286,0 . 
+MOT,650970,652286,0 . 
+MOT,653466,655488,yes , cow says moo@o . 
+MOT,655488,657671,let's see what else we have here . 
+MOT,657671,659348,what's a piggy say ? 
+MOT,659348,661375,snort , snort , snort@o . 
+MOT,661375,661748,0 . 
+MOT,661748,663693,piggy says snort snort snort@o . 
+MOT,663530,664168,0 [= smacking noises] . 
+MOT,664168,665560,0 [= laughs] . 
+MOT,666468,667245,What's that piggy say ? 
+MOT,667245,669133,snort snort snort@o . 
+MOT,669133,670291,yes . 
+MOT,676253,678273,0 [=! voc] . 
+MOT,681263,682985,want the piggy ? 
+MOT,682985,683858,0 [= gasp] . 
+MOT,686810,689113,0 [=! voc] . 
+MOT,689113,689941,what's the piggy say ? 
+MOT,689941,691565,yum@o . 
+MOT,692650,693598,0 . 
+MOT,693598,694445,yes . 
+MOT,694445,695545,yes . 
+MOT,698230,699646,what ? 
+MOT,700593,702341,oh are you growling at the piggy ? 
+MOT,703695,705178,oh , okay . 
+MOT,706060,707901,what ? 
+MOT,707901,710266,where's the piggy ? 
+MOT,710266,711790,piggy gone . 
+MOT,710266,711790,0 . 
+MOT,711790,713806,piggy gone . 
+MOT,713831,715011,where's the piggy ? 
+MOT,715011,715856,0 [= gasp] . 
+MOT,715856,716841,Chi . 
+MOT,716841,718136,Chi . 
+MOT,719738,721113,there's the piggy . 
+MOT,721113,723401,dere's [: there's] the piggy . 
+MOT,724678,725256,0 [= gasp] . 
+MOT,725256,727776,Chi . 
+MOT,727776,728605,where's the piggy ? 
+MOT,729175,730080,where's the piggy ? 
+MOT,730160,732735,piggy gone . 
+MOT,733593,738095,0 . 
+MOT,739381,741021,snort snort snort@o . 
+MOT,741021,742256,da [: the] piggy . 
+MOT,742256,743530,that silly piggy . 
+MOT,744396,746030,Um hum . 
+MOT,751853,753288,&-um , yes . 
+MOT,754536,762485,0 . 
+MOT,764051,764795,what ? 
+MOT,769085,770711,what ? 
+MOT,770711,772218,<what's > [<] . 
+MOT,772218,774921,what's a piggy doing on Big_Bird ? 
+MOT,774921,776955,what's a piggy doing on Big_Bird ? 
+MOT,778903,781581,you wanna see some more ? 
+MOT,781581,784060,here , let's see what else we have here . 
+MOT,785751,786868,let's see . 
+MOT,786868,789785,look at Mot [= mama] . 
+MOT,789785,791815,can you put it on ? 
+MOT,791815,792691,can you put it on ? 
+MOT,792691,793171,0 [= gasp] . 
+MOT,793868,795223,see , it goes on . 
+MOT,795223,797648,want it off ? 
+MOT,800785,803450,very good . 
+MOT,803450,804723,good job . 
+MOT,809868,810323,what ? 
+MOT,810323,812355,should mama put it on ? 
+MOT,813765,814508,yay . 
+MOT,815466,816901,careful , please . 
+MOT,816901,818393,careful , please . 
+MOT,818393,821945,okay , should we put Big_Bird back ? 
+MOT,821945,826025,in the box . 
+MOT,826025,827275,where'd Big_Bird go ? 
+MOT,827275,828645,where'd we put Big_Bird ? 
+MOT,828645,831240,0 . 
+MOT,833480,835813,very good ! 
+MOT,836703,838088,what ? 
+MOT,840561,843466,you want the orange one ? 
+MOT,846561,849301,&-uh oh . 
+MOT,849301,850375,what ? 
+MOT,852016,853233,careful . 
+MOT,853233,855265,what do you see ? 
+MOT,855265,855926,what do you see ? 
+MOT,858531,859856,0 [=! gasp] . 
+MOT,859856,861136,see da [: the] baby ? 
+MOT,861136,862545,see da [: the] baby ? 
+MOT,863840,865171,nice baby . 
+MOT,866931,867513,0 [=! gasp] . 
+MOT,867513,869185,you found the baby's eyes . 
+MOT,871585,872255,what else ? 
+MOT,872255,873240,0 [=! gasp] . 
+MOT,873240,875076,there's that cow . 
+MOT,875076,876340,there's the cow . 
+MOT,879058,880460,xxx find the book ? 
+MOT,880460,882288,should we find the baby in the book ? 
+MOT,882288,885991,there's the bear . 
+MOT,885991,886863,watch , Chi ! 
+MOT,887523,888871,0 . 
+MOT,890303,891256,0 . 
+MOT,891256,893046,0 [=! laughs] . 
+MOT,893046,895221,0 . 
+MOT,893046,895366,Chi . 
+MOT,896715,898318,0 [=! laughs] . 
+MOT,898318,900275,see the bear ? 
+MOT,900275,901343,where's that in there ? 
+MOT,901343,902721,do you see Chi ? 
+MOT,902721,906526,see Chi ? 
+MOT,906526,907976,oh , wanna [= do you want to] go back to the glasses ? 
+MOT,910393,915670,What ? 
+MOT,919371,921720,see da [: the] baby ? 
+MOT,921720,923375,see da [: the] baby ? 
+MOT,924580,927215,0 . 
+MOT,927215,928478,Chi . 
+MOT,928478,931195,see the glasses on Mot [= mama] ? 
+MOT,931736,932141,0 . 
+MOT,932141,934053,shall we put the glasses on Chi ? 
+MOT,934053,934566,oop . 
+MOT,934566,936103,glasses on Chi . 
+MOT,936103,936848,0 . 
+MOT,936848,938655,0 . 
+MOT,936848,938623,hello . 
+MOT,939376,941211,0 . 
+MOT,939376,941211,Chi . 
+MOT,941211,944396,peek . 
+MOT,944396,948271,peek . 
+MOT,948718,949426,0 . 
+MOT,950360,951610,0 . 
+MOT,950360,951731,peek . 
+MOT,952740,959875,peek . 
+MOT,959875,962110,0 [= gasp] . 
+MOT,963088,964646,0 . 
+MOT,963088,965726,peek . 
+MOT,967295,971555,0 [= gasp] . 
+MOT,971555,972780,xxx the baby . 
+MOT,972780,973156,0 [= gasp] . 
+MOT,973156,974346,look at the baby . 
+MOT,974346,975205,see the baby ? 
+MOT,975205,976016,xxx the kitty ? 
+MOT,976016,977748,kitty says meow@o . 
+MOT,977748,979676,kitty says meow@o . 
+MOT,979676,982575,yay . 
+MOT,983169,984131,yes . 
+MOT,1001181,1002023,what ? 
+MOT,1002023,1003348,what ? 
+MOT,1005093,1007451,0 [= voc] . 
+MOT,1016500,1018118,most definitely . 
+MOT,1023523,1025720,&-um hum . 
+MOT,1030576,1033023,did you find the bunny ? 
+MOT,1033023,1038773,bunny goes hop , hop , hop . 
+MOT,1037148,1041369,0 . 
+MOT,1041369,1042096,see the bunny ? 
+MOT,1045328,1046251,what ? 
+MOT,1048345,1050393,oh , you wanna [= want to] see what else is in there ? 
+MOT,1050393,1050840,let me see . 
+MOT,1050840,1051750,there's another book . 
+MOT,1051750,1052540,0 [= gasp] . 
+MOT,1052540,1054435,baby's colors . 
+MOT,1054435,1055270,0 [= gasp] . 
+MOT,1055270,1056436,see the yellow ? 
+MOT,1056436,1061073,0 [= gasp] . 
+MOT,1061715,1063406,look at the firetruck . 
+MOT,1063406,1064983,see the red ? 
+MOT,1070748,1072420,0 [= gasp] . 
+MOT,1072420,1073323,I know what we'll do . 
+MOT,1073323,1074790,where's Chi ? 
+MOT,1075271,1076625,peek . 
+MOT,1077581,1078216,0 [= gasp] . 
+MOT,1078216,1079541,where's Chi ? 
+MOT,1079541,1081191,peek . 
+MOT,1081191,1084221,where's Chi . 
+MOT,1084221,1087003,peek . 
+MOT,1096171,1096553,what ? 
+MOT,1096553,1097548,what do you want ? 
+MOT,1097548,1098756,want the hat ? 
+MOT,1098756,1101248,hat ? 
+MOT,1103526,1104525,okay . 
+MOT,1104525,1109156,should Mot [= momma] put everything in so you can +... 
+MOT,1109156,1111196,so you can find something ? 
+MOT,1111196,1114378,Chi . 
+MOT,1114378,1115636,now you've got the stuff . 
+MOT,1115636,1116786,that you can take out . 
+MOT,1119731,1122501,what ? 
+MOT,1129778,1131886,the babys nice . 
+MOT,1132925,1134026,0 . 
+MOT,1132925,1133758,here , what are you looking for ? 
+MOT,1133758,1134420,0 [= gasp] . 
+MOT,1134420,1136920,I found da [: the] piggy . 
+MOT,1136920,1141158,here comes the piggy . 
+MOT,1142186,1143845,want the piggy ? 
+MOT,1145595,1147320,0 [=! voc] . 
+MOT,1147320,1150256,0 [=! voc] . 
+MOT,1150256,1152375,0 [=! voc] . 
+MOT,1152375,1153098,I'm right here . 
+MOT,1153098,1154038,I'm right here . 
+MOT,1154038,1155830,<where you going> [<] . 
+MOT,1155830,1158105,<what> [<] . 
+MOT,1158105,1160581,<can you get the rug> [<] . 
+MOT,1160581,1161348,can you get the rug ? 
+MOT,1161348,1161640,whoa ! 
+MOT,1161640,1162505,careful ! 
+MOT,1162505,1163748,careful please . 
+MOT,1163748,1169616,no , you can't lean over that far , sweetie pie . 
+MOT,1169616,1170625,okay Mot [= mama] hold it . 
+MOT,1170625,1172693,you're gonna topple out . 
+MOT,1172693,1178610,careful . 
+MOT,1180236,1181381,0 [=! voc] [<] . 
+MOT,1182946,1183395,come here . 
+MOT,1184171,1185333,0 [=! voc] . 
+MOT,1185333,1186506,sit for me . 
+MOT,1186506,1189773,ahhah . 
+MOT,1189773,1193543,there's the funny face . 
+MOT,1193543,1194778,xxx . 
+MOT,1194778,1197968,peek . 
+MOT,1197968,1200381,peek . 
+MOT,1200381,1202103,Mot wear funny glasses . 
+MOT,1202103,1203723,on xxx eyes . 
+MOT,1203723,1206358,ahhah Chi wear funny glasses . 
+MOT,1206358,1209736,Mot wear funny glasses . 
+MOT,1209736,1211346,oh silly Mot . 
+MOT,1211346,1212656,oh silly Mot . 
+MOT,1228338,1229845,yes . 
+MOT,1234773,1235425,thank you . 
+MOT,1235425,1236553,mhm . 
+MOT,1236553,1243138,ahhah I hear the music . 
+MOT,1243138,1245261,pretty bird . 
+MOT,1245261,1246736,pretty bird . 
+MOT,1246736,1250275,can you make the birdie sing . 
+MOT,1250275,1254168,ahhah can you make the birdie sing . 
+MOT,1254168,1256275,ahhah there the birdie sings . 
+MOT,1256275,1259758,xxx . 
+MOT,1259758,1262341,ahhah . 
+MOT,1262341,1263783,ahhah . 
+MOT,1263783,1265130,there's the birdie . 
+MOT,1265130,1269135,what sweetie . 
+MOT,1269135,1276791,is the rug rough . 
+MOT,1276791,1278845,careful please . 
+MOT,1278845,1283181,see what else . 
+MOT,1283181,1286140,ahhah where's the sheep . 
+MOT,1286140,1287245,sheep . 
+MOT,1287245,1289803,sheep says baa@o baa@o . 
+MOT,1289803,1291981,baa@o baa@o . 
+MOT,1291981,1308925,what are you doing . 
+MOT,1309995,1311116,careful . 
+MOT,1311116,1316158,you lifting up the rug . 
+MOT,1316158,1317590,you getting under . 
+MOT,1317590,1319786,getting under . 
+MOT,1319786,1321188,under the rug . 
+MOT,1321188,1322828,silly silly (.) careful . 
+MOT,1322828,1324363,careful . 
+MOT,1324363,1327881,what else do you see . 
+MOT,1327881,1330898,ahhah back to the book . 
+MOT,1330898,1340451,Chi . 
+MOT,1340451,1346698,what are you looking for . 
+MOT,1347150,1349383,0 [=! voc] [<] . 
+MOT,1349383,1351831,Chi no sir . 
+MOT,1351831,1353750,no sir . 
+MOT,1353750,1356271,baby get hurt that way . 
+MOT,1356271,1358583,Chi's gonna get hurt that way . 
+MOT,1358583,1360930,that'll get Chi hurt . 
+MOT,1360930,1363378,here's the new book . 
+MOT,1363378,1364695,Chi look at this book . 
+MOT,1364695,1366855,look at the blue . 
+MOT,1366855,1368366,can you see the blue boat . 
+MOT,1368366,1372893,I see a blue boat . 
+MOT,1372893,1374615,I see lots_of blue boats . 
+MOT,1374615,1376355,there's a police boat . 
+MOT,1376355,1378393,Zachary likes police boats „ doesn't he . 
+MOT,1378393,1380983,Chi . 
+MOT,1382738,1383701,0 [=! voc] . 
+MOT,1383701,1390641,careful <please> [>] . 
+MOT,1391380,1392778,careful please . 
+MOT,1393868,1398680,Chi . 
+MOT,1398680,1403858,come here sweetie . 
+MOT,1403858,1404715,come on . 
+MOT,1404715,1406628,0 [=! voc] . 
+MOT,1406628,1407733,crash . 
+MOT,1407733,1409420,careful please . 
+MOT,1409420,1411656,careful please . 
+MOT,1411656,1414326,Mot get your piggie toes boop@o boop@o boop@o . 
+MOT,1414326,1415756,Mot get the piggie toes . 
+MOT,1415756,1416950,Mot get the piggie toes . 
+MOT,1416950,1418130,Chi . 
+MOT,1418130,1418866,watch Mot . 
+MOT,1418866,1419491,Chi . 
+MOT,1419491,1421253,Chi . 
+MOT,1421253,1424790,where are you going sir . 
+MOT,1425540,1426701,0 [=! voc] . 
+MOT,1426701,1429948,0 [=! voc] . 
+MOT,1432603,1434480,here . 
+MOT,1434480,1437436,let's see if we can stack the [/] the rings . 
+MOT,1437436,1438383,can we stack . 
+MOT,1438383,1441471,ahhah . 
+MOT,1441471,1443265,what comes next . 
+MOT,1443265,1444243,ahhah . 
+MOT,1449535,1454308,can we put the blue one on . 
+MOT,1454308,1455373,can we put the blue one on . 
+MOT,1455373,1455725,ahhah . 
+MOT,1455725,1457743,very good . 
+MOT,1457743,1458916,want the green one . 
+MOT,1458916,1462755,green one comes next . 
+MOT,1462755,1471390,green one comes next . 
+MOT,1471390,1473423,careful . 
+MOT,1479155,1480723,0 [=! voc] . 
+MOT,1480723,1485068,here can we put the green one on . 
