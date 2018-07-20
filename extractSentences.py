@@ -9,6 +9,7 @@ Created on Mon Jul 16 07:59:39 2018
 import re
 import nltk
 import nltk.tokenize
+from nltk import pos_tag, word_tokenize
 
 def extractFileContent(filename):
     fileContent = ""
@@ -28,9 +29,9 @@ def splitLines(speechLines):
     lines = []
     for line in speechLines:
         splitLine = splitOneLine(line)
-        if len(splitLine) != 0:
-            lines.append(splitLine)
-
+        for line in splitLine : 
+            if len(line) != 0:
+                lines.append(line)
     return lines
 
 def splitOneLine(line):
@@ -42,26 +43,33 @@ def splitOneLine(line):
     line = line[1]
     line = line.split('\x15')
     sentence = line[0]
-    sentence = cleanSentence(sentence)
-    if sentence == "" or sentence == " " :
-        return []
-    else:
-        line = line[1]
-        line = line.split('_')
-        on = line[0]
-        off = line[1]
-        #print ("sentence "+sentence)
-        #print ("on " + on)
-        #print ("off "+ off)
-        return [act, on, off, sentence]
+    sentences = cleanSentence(sentence)
+    lines = []
+    line = line[1]
+    line = line.split('_')
+    on = line[0]
+    off = line[1]
+    for sentence in sentences:
+        if sentence != "" and sentence != " " :
+            #print ("sentence "+sentence)
+            #print ("on " + on)
+            #print ("off "+ off)
+            lines.append([act, on, off, sentence])
+    return lines
+
 
 def cleanSentence(sentence):
-    sentence = re.sub('\[.*\]','',sentence)
-    sentence = re.sub("[^a-zA-Z ']",'',sentence)
-    sentence = sentence.lower()
-    sentence = re.sub('xxx','',sentence)
-    sentence = re.sub('  +','',sentence)
-    return sentence
+    sentence = sentence.replace("[/]","\n")
+    sentences = sentence.split("\n")
+    cleanSentences = []
+    for sentence in sentences:
+        sentence = re.sub('\[.*\]','',sentence)
+        sentence = re.sub("[^a-zA-Z ']",'',sentence)
+        sentence = sentence.lower()
+        sentence = re.sub('xxx','',sentence)
+        sentence = re.sub('  +',' ',sentence)
+        cleanSentences.append(sentence)
+    return cleanSentences
 
 def getFileName(filePath):
     filename = filePath.split('/')[-1]
@@ -84,10 +92,10 @@ def saveInFile(filePath):
             content = addObj(content)
             content = tabToString(content)
             file.write(content)
+            
 
 def tabToString(lineTab):
     line = ""
-    print ("len de linTab : " + str(len(lineTab)))
     for i in range (0,len(lineTab)):
         if len(lineTab)-1 == i:
             line = line + lineTab[i] + '\n'
@@ -103,16 +111,18 @@ def addNouns(line):
 
 def addObj(line):
     obj = getObj(line[3])
+    #print ("line  = " + str(line) + " , obj = " + obj)
     line.append(obj)
-    return obj
+    #print ("line after append obj : " + str(line))
+    return line
     
 
 def getNouns(sentence):
     nouns = ""
-    sentence = nltk.tokenize.word_tokenize(sentence)
+    sentence = word_tokenize(sentence)
     pos_sentence = nltk.pos_tag(sentence)
-    print (pos_sentence)
     for elt in pos_sentence:
+        print (elt)
         if elt[1] == 'NN' or elt[1] == 'NNS':
             if nouns != "":
                 nouns = nouns + " "
@@ -123,20 +133,111 @@ def getNouns(sentence):
 
 def getObj(sentence):
     obj = ""
-    matchSentences = ["can you get the", "the ","that is a ","and the ","a ","it is a ","this is a ","and a ","can you say ","here is the ","and ","where is the ","that is the ","look at the ","i have the ","you want the ","color is the ","is that the ","there is the ","you put the ","to put the ","one is the "]
+    matchSentences = ["can you get the ", "the ", "da ","that is a ","that's a ","and the ","a ","it is a ","this is a ","and a ","can you say ","here is the ","and ","where is the ","that is the ","look at the ","i have the ","you want the ","color is the ","is that the ","there is the ","you put the ","to put the ","one is the "]
     for matchSentence in matchSentences:
-        matchResults = re.findall(matchSentence + '[a-z]+',sentence)
+        matchResults = re.findall(' ' +matchSentence + '[a-z]+',sentence)
         for match in matchResults:
             match = match.replace(matchSentence,'')
+            
             if obj != "":
-                obj = obj + " "
-            obj = obj + match 
-    print("object  = " + obj)
+                if len(re.findall(match,obj)) == 0:
+                    obj = obj + " "
+                    obj = obj + match 
+            else :
+                obj = obj + match 
+    #print("object  = " + obj)
     return obj
+
+
+################################  
+def ratioObjectsMatch(filePath):
+    text = getTextFromCha(filePath)
+    objList = getObj(text).split(" ")
+    objDic = cleanObjList(objList)
+    objDic = set_ratio_each_obj_foud_notFoud(text, objDic)
+    ratio = getTotalRatio(objDic)
+    print ("proportion trouvée en moyenne : " + str(ratio))
+    return ratio
+    
+def perfObjMatch(arg):
+    obj = "bigbird birdie cow piggy bird box baby book bear glasses kitty bunny firetruck hat stuff pie sheep boat piggie rings babys rug"
+    obj = obj.split(" ")
+    objNotFound = obj
+    text = getTextFromCha('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
+    
+    if arg == 1 :
+        objFound = getNouns(text).split(" ")
+        cat = "NLTK POS tagging "
+    else : 
+        objFound = getObj(text).split(" ")
+        cat = "Typical sentences "
+    
+    objFound = cleanObjList(objFound)
+    objFound = set_ratio_each_obj_foud_notFoud(text, objFound)
+    
+    countObjFound = 0
+    meanRatio = 0.0
+    for elt in objFound:
+        if elt['object'] in  obj:
+            meanRatio = meanRatio + elt['ratio']
+            objNotFound.remove(elt['object'])
+            countObjFound += 1
+        else : 
+            print ("Mots en trop phrases types : " + elt['object'])
+          
+    print ("-----" + cat + "-----")
+    print ("matchobj / solution : " + str(countObjFound/len(obj)))
+    print ("precison nb de mots qui sont des objets / nombre d'objets trouvés : " + str(countObjFound/len(objFound)) )
+    #print ("moyenne des précisions(nombre de fois ou le mot est trouvé / le nombre de fois où il apparait : " + str(meanRatio /countObjFound))
+    print ("Not found objects : " + str(objNotFound))
+  
+
+def getTotalRatio(objDic):
+    ratio = 0.0
+    for obj in objDic:
+        ratio = ratio + obj['ratio']
+    ratio = ratio /len(objDic)
+    print (ratio)
+    return ratio
+
+def getTextFromCha(filePath):
+    lines = getSpeechLines(filePath)
+    txt = ""
+    for line in lines:
+        if txt != "":
+            txt = txt + ". "
+        splittedLine = splitOneLine(line)
+        if len (splittedLine) >0:
+            txt = txt + splittedLine[0][3]
+    txt = txt.replace(" .",".")
+    txt = re.sub("\.+",".", txt)
+    return (txt)
+    
+def set_ratio_each_obj_foud_notFoud(text, objDic):
+    for obj in objDic:
+        nb  = len (re.findall(obj['object'], text))
+        nb = float(obj['nbfound']/nb)
+        obj['ratio'] = nb
+    return objDic
+        
+def cleanObjList(objList):
+    dicList = []
+    for i in range (0, len(objList)):
+        obj = objList[i]
+        n = 0
+        for j in range(0, len(objList)):
+            if obj == objList[j]:
+                if j < i:
+                    break
+                else:
+                    n = n + 1
+        if n > 0:
+            dicList.append({'object' : obj, 'nbfound' : n, 'ratio': 0})
+    return dicList
+    
     
 
-
-        
+################################       
 def getAllSpeechDuration(filename):
     content = extractFileContent(filename)
     duration_tab = re.findall('[0123456789][0123456789]*_[0123456789][0123456789]*', content)
@@ -157,6 +258,8 @@ def getEnd(filename):
     return off
 
 
-lines = saveInFile('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
+#lines = saveInFile('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
 
+#ratioObjectsMatch('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
 
+perfObjMatch(1)
