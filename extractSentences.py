@@ -10,6 +10,7 @@ import re
 import nltk
 import nltk.tokenize
 from nltk import pos_tag, word_tokenize
+from nltk.corpus import wordnet as wn 
 
 def extractFileContent(filename):
     fileContent = ""
@@ -122,12 +123,10 @@ def getNouns(sentence):
     sentence = word_tokenize(sentence)
     pos_sentence = nltk.pos_tag(sentence)
     for elt in pos_sentence:
-        print (elt)
         if elt[1] == 'NN' or elt[1] == 'NNS':
             if nouns != "":
                 nouns = nouns + " "
             nouns = nouns + elt[0]
-    print (nouns)
     return nouns
 
 
@@ -137,17 +136,22 @@ def getObj(sentence):
     for matchSentence in matchSentences:
         matchResults = re.findall(' ' +matchSentence + '[a-z]+',sentence)
         for match in matchResults:
-            match = match.replace(matchSentence,'')
-            
+            match = match.replace(' ' + matchSentence,'')
             if obj != "":
                 if len(re.findall(match,obj)) == 0:
                     obj = obj + " "
                     obj = obj + match 
             else :
                 obj = obj + match 
-    #print("object  = " + obj)
     return obj
 
+def get_obj_by_POS_and_sentences(sentence):
+    list_obj1 = getObj(sentence)
+    list_obj2 = getNouns(sentence)
+    list_obj1 = list_obj1.split(" ")
+    list_obj2 = list_obj2.split(" ")
+    return list(set(list_obj1).intersection(list_obj2))
+    
 
 ################################  
 def ratioObjectsMatch(filePath):
@@ -162,12 +166,16 @@ def ratioObjectsMatch(filePath):
 def perfObjMatch(arg):
     obj = "bigbird birdie cow piggy bird box baby book bear glasses kitty bunny firetruck hat stuff pie sheep boat piggie rings babys rug"
     obj = obj.split(" ")
+    nbObjToFind = len (obj)
     objNotFound = obj
     text = getTextFromCha('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
     
     if arg == 1 :
         objFound = getNouns(text).split(" ")
         cat = "NLTK POS tagging "
+    elif arg == 3 :
+        objFound = get_obj_by_POS_and_sentences(text)
+        cat = "Union NLTK POS tagging and sentences"
     else : 
         objFound = getObj(text).split(" ")
         cat = "Typical sentences "
@@ -177,18 +185,18 @@ def perfObjMatch(arg):
     
     countObjFound = 0
     meanRatio = 0.0
+    print ("-----" + cat + "-----")
     for elt in objFound:
         if elt['object'] in  obj:
             meanRatio = meanRatio + elt['ratio']
             objNotFound.remove(elt['object'])
             countObjFound += 1
+        
         else : 
-            print ("Mots en trop phrases types : " + elt['object'])
-          
-    print ("-----" + cat + "-----")
-    print ("matchobj / solution : " + str(countObjFound/len(obj)))
+            print ("Mots en trop : " + elt['object'])
+    print ("matchobj / solution : " + str(countObjFound/nbObjToFind))
     print ("precison nb de mots qui sont des objets / nombre d'objets trouvés : " + str(countObjFound/len(objFound)) )
-    #print ("moyenne des précisions(nombre de fois ou le mot est trouvé / le nombre de fois où il apparait : " + str(meanRatio /countObjFound))
+    print ("moyenne des précisions(nombre de fois ou le mot est trouvé / le nombre de fois où il apparait : " + str(meanRatio /countObjFound))
     print ("Not found objects : " + str(objNotFound))
   
 
@@ -257,9 +265,13 @@ def getEnd(filename):
     print(off)
     return off
 
-
 #lines = saveInFile('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
 
 #ratioObjectsMatch('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
 
 perfObjMatch(1)
+perfObjMatch(2)
+perfObjMatch(3)
+    
+#sentence = getTextFromCha('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
+#print (get_obj_by_POS_and_sentences(sentence))
