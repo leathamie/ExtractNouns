@@ -71,7 +71,10 @@ def createCSVFile(textFolderPath, videoFolderPath, onlinePath):
     for filename in os.listdir(textFolderPath):
         match = re.match("[a-z][a-z][0-9][0-9]\.txt",filename)
         if match:
-            browseVideoFiles(filename, videoFolderPath, onlinePath)
+            if textFolderPath[-1] != "/":
+                browseVideoFiles(textFolderPath + "/"+ filename, videoFolderPath, onlinePath)
+            else:
+                browseVideoFiles(textFolderPath + filename, videoFolderPath, onlinePath)
         
 
 def main():
@@ -86,7 +89,11 @@ def main():
     videoFolderPath = args["video"]
     textFolderPath = args["text"]
     
-    if args.get("path", None) is not None:
+    if args.get("text", None) is None:
+        print ("a text folder path is required")
+    elif args.get("video", None) is None:
+        print ("a video folder path is required")
+    elif args.get("path", None) is not None:
         onlinePath = args["path"]
         createCSVFile(textFolderPath, videoFolderPath, onlinePath)
     else: 
