@@ -81,19 +81,37 @@ def getFileName(filePath):
     return filename
     
 def saveInFile(filePath):
-        lines = getSpeechLines(filePath)
-        print (lines)
-        contentTab = splitLines(lines)
-        filename = getFileName(filePath)
-        file = open(filename + '.txt','w')
-        file.write('name,on,off,sentence,POSnouns,Ojects\n')
-        #print ("len de contentTab" + str(len(contentTab)))
-        for content in contentTab:
-            content = addNouns(content)
-            content = addObj(content)
-            content = tabToString(content)
-            file.write(content)
+    lines = getSpeechLines(filePath)
+    print (lines)
+    contentTab = splitLines(lines)
+    filename = getFileName(filePath)
+    file = open(filename + '.txt','w')
+    file.write('name,on,off,sentence,Objects\n')
+    #print ("len de contentTab" + str(len(contentTab)))
+    for content in contentTab:
+        content = add_obj_POS_sentence(content)
+        content = tabToString(content)
+        file.write(content)
             
+def writeFileWithAllObject(chaFilePath):
+    text = getTextFromCha(chaFilePath)
+    objFound = get_obj_by_POS_and_sentences(text)
+    filename = getFileName(chaFilePath)
+    file = open(filename + '.txt','w')
+    lines = getSpeechLines(chaFilePath)
+    contentTab = splitLines(lines)
+    file.write('name,on,off,sentence,Objects\n')
+    for content in contentTab:
+        objList = ""
+        for elt in objFound:
+            if elt in content[3]:
+                if objList != "":
+                    objList += " "
+                objList += elt
+        content.append(objList)
+        content = tabToString(content)
+        file.write(content)
+    
 
 def tabToString(lineTab):
     line = ""
@@ -116,7 +134,16 @@ def addObj(line):
     line.append(obj)
     #print ("line after append obj : " + str(line))
     return line
-    
+
+def add_obj_POS_sentence(line):
+    obj = get_obj_by_POS_and_sentences(line[3])
+    str_obj = ""
+    for elt in obj:
+        if str_obj != "":
+            str_obj += " "
+        str_obj += elt
+    line.append(str_obj)
+    return line
 
 def getNouns(sentence):
     nouns = ""
@@ -162,6 +189,7 @@ def ratioObjectsMatch(filePath):
     ratio = getTotalRatio(objDic)
     print ("proportion trouvée en moyenne : " + str(ratio))
     return ratio
+
     
 def perfObjMatch(arg):
     obj = "bigbird birdie cow piggy bird box baby book bear glasses kitty bunny firetruck hat stuff pie sheep boat piggie rings babys rug"
@@ -265,13 +293,14 @@ def getEnd(filename):
     print(off)
     return off
 
-#lines = saveInFile('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
+
+writeFileWithAllObject('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
 
 #ratioObjectsMatch('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
 
-perfObjMatch(1)
-perfObjMatch(2)
-perfObjMatch(3)
+#perfObjMatch(1)
+#perfObjMatch(2)
+#perfObjMatch(3)
     
 #sentence = getTextFromCha('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
 #print (get_obj_by_POS_and_sentences(sentence))
