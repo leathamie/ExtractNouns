@@ -87,7 +87,7 @@ def saveInFile(filePath):
     print (lines)
     contentTab = splitLines(lines)
     filename = getFileName(filePath)
-    file = open(filename + '.txt','w')
+    file = open("DATA/" + filename + '.txt','w')
     file.write('name,on,off,sentence,Objects\n')
     #print ("len de contentTab" + str(len(contentTab)))
     for content in contentTab:
@@ -99,7 +99,7 @@ def writeFileWithAllObject(chaFilePath):
     text = getTextFromCha(chaFilePath)
     objFound = get_obj_by_POS_and_sentences(text)
     filename = getFileName(chaFilePath)
-    file = open(filename + '.txt','w')
+    file = open("DATA/" + filename + '.txt','w')
     lines = getSpeechLines(chaFilePath)
     contentTab = splitLines(lines)
     file.write('name,on,off,sentence,Objects\n')
