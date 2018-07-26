@@ -7,8 +7,10 @@ Created on Mon Jul 16 07:59:39 2018
 """
 
 import re
+import os
 import nltk
 import nltk.tokenize
+import argparse
 from nltk import pos_tag, word_tokenize
 from nltk.corpus import wordnet as wn 
 
@@ -23,7 +25,7 @@ def extractFileContent(filename):
 def getSpeechLines(filePath):
     content = extractFileContent(filePath)
     line_tab = re.findall('\*[A-Z]+:.*_[0123456789][0123456789]*', content)
-    print (len(line_tab))
+    #print (len(line_tab))
     return line_tab
 
 def splitLines(speechLines):
@@ -290,17 +292,33 @@ def getEnd(filename):
     content = extractFileContent(filename)
     last_duration = re.findall("[0123456789][0123456789]*_[0123456789][0123456789]*", content)[-1]
     off = last_duration.split('_')[1]
-    print(off)
     return off
 
 
-writeFileWithAllObject('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
-
-#ratioObjectsMatch('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
-
-#perfObjMatch(1)
-#perfObjMatch(2)
-#perfObjMatch(3)
+def main():
+    # construct the argument parser and parse the arguments
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-i", "--input", help=".cha file folder path")
+    args = vars(ap.parse_args())
+    if args.get("input", None) is not None:
+        # read arguments
+        chaFolderPath = args["input"]
+        for filename in os.listdir(chaFolderPath):
+            match = re.match("[a-z][a-z][0-9][0-9]\.cha",filename)
+            if match:
+                if chaFolderPath[-1] != "/":
+                    writeFileWithAllObject(chaFolderPath + "/" + filename)
+                else:
+                    writeFileWithAllObject(chaFolderPath + filename)
+    #ratioObjectsMatch('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
+    #perfObjMatch(1)
+    #perfObjMatch(2)
+    #perfObjMatch(3)
+    #sentence = getTextFromCha('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
+    #print (get_obj_by_POS_and_sentences(sentence))
+        
     
-#sentence = getTextFromCha('/home/lea/Stage/DATA/chaFiles/Rollins/nb09.cha')
-#print (get_obj_by_POS_and_sentences(sentence))
+
+
+if __name__ == "__main__":
+    main()
