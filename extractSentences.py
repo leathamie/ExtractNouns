@@ -103,11 +103,11 @@ def writeFileWithAllObject(chaFilePath):
     lines = getSpeechLines(chaFilePath)
     contentTab = splitLines(lines)
     file.write('name,on,off,sentence,Objects\n')
-    for content in contentTab:
+    for content in contentTab: #Browse the speech lines 
         objList = ""
-        for elt in objFound:
-            if elt in content[3]:
-                if objList != "":
+        for elt in objFound: # Browe all the found objects in the speech
+            if " " + elt in content[3]: #if the object is in the sentence. Without the " " before elt, the elt "hat" is found in "what" 
+                if objList != "": 
                     objList += " "
                 objList += elt
         content.append(objList)
