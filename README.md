@@ -51,7 +51,10 @@ ex input
 ```
  python join_object_and_videoExtracts.py -t'textFolderPath' -v'videoClipFolderPath'
 ```
-You can also specify a path for the online video, it will be add before the 
-output
-fonctionnement général 
+You can also specify a path for the online video, it will be add before the current video name.
+for example : 
+```
+python join_object_and_videoExtracts.py -t'textFolderPath' -v'videoClipFolderPath' -p'http://129.199.81.135/babyvid/'
+```
+
 
