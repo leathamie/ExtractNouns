@@ -24,21 +24,34 @@ MOT,1106451,1109888,do you want bird to sit in the chair ,chair
 ```
 In the first column there is the speaker (in this version only the mother's speech has been retrieved), in the second column there is the speech start time in milliseconds, in the 3rd column there is the speech end time in milliseconds, in the 4th column there is the speech and in the last column the found objects.
 
-ex of input
-ex of output
+Overall the program cleans the.cha file to extract only the mother's speech. Then it performs a POS tagging and a word search based on phrases on this text. So we get 2 list of words, we keep the words that are present in both lists.  Then we create a file where we will write the sentences said, when they were said and what words from the list are present.
 
-clean cha and extract sentences --> search objects names in all file --> POS tagging U sample sentence --> get an all file obj list --> browse lines and for each associate objects.
-Why not by beginning? Because we whant to be assured that we catch all occurrences.
+We took the example of the article"""" and we have this list of sentences`:
+```
+"can you get the ", "the ", "da ","that is a ","that's a ","and the ","a ","it is a ","this is a ","and a ","can you say ","here is the ","and ","where is the ","that is the ","look at the ","i have the ","you want the ","color is the ","is that the ","there is the ","you put the ","to put the ","one is the "
+```
+if a word is preceded by one of these sentences he is probably an object. Wee add some verbal equivalent sentences, for example if 'the' is present we add 'da'
 
-- dans le nettoyage on a laissé les ' pour le POS tagging 
-- on a rajouté des phrases types en transformant les existantes en orales "the" = "da"
+This script only takes as argument the cha folder path. You can lunch the scprit il command line with for example:
+'''
+python extract_objectsNames_in_txtFiles.py -i '/chaFolderpath'
+'''
 
-- cas ou il n'y a pas les durées 
-AMméliorations à faire : 
--colors
+When we clean the .chat file we remove all punctuation or special characters, we leave the apostrophes because the NLTK POS tagging works very badly without.
+
+If the lyrics durations are not specified in the .cha then no phrase will be selected and it is possible to have a file that will be created but will be empty.
+
+### improvements to be made :
+- do not create a file when there is no sentence with a duration
+- add a possible color list in sentences
 
 ## join_object_and_videoExtracts.py
+this script takes in parameter two folders, the one with all the text files created by the previous script and a folder with all the video clips. Video clips are named in a particular way : MainVideoName_Start_Stop.mp4 start and stop are in seconds.
 ex input
+```
+ python join_object_and_videoExtracts.py -t'textFolderPath' -v'videoClipFolderPath'
+```
+You can also specify a path for the online video, it will be add before the 
 output
 fonctionnement général 
 
